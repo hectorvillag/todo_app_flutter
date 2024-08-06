@@ -26,9 +26,7 @@ class HomeTaskItem extends StatelessWidget {
           Radio(
               value: task.isDone,
               groupValue: !task.isDone,
-              onChanged: (value) {
-                print('value: $value');
-              }),
+              onChanged: (value) {}),
           Column(
             children: [Text(task.title), Text(task.description)],
           )
