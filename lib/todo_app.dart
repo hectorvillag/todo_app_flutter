@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app_flutter/home_screen.dart';
+import 'package:todo_app_flutter/features/home/home_screen.dart';
 
 class TodoApp extends StatelessWidget {
   const TodoApp({super.key});
