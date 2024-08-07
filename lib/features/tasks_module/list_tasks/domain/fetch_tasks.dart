@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart' as dartz;
-import 'package:todo_app_flutter/features/tasks_module/domain/task.dart';
-import 'package:todo_app_flutter/features/tasks_module/domain/task_repository.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_repository.dart';
 
 class FetchTasks{
   FetchTasks(this.taskRepository);

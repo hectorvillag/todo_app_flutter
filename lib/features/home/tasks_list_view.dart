@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_flutter/features/home/home_task_item.dart';
-import 'package:todo_app_flutter/features/tasks_module/domain/task.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
 
 class TasksListView extends StatelessWidget {
   const TasksListView({

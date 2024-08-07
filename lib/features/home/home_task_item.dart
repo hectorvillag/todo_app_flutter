@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app_flutter/features/tasks_module/domain/task.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
 import 'package:todo_app_flutter/shared/colors.dart';
 
 class HomeTaskItem extends StatelessWidget {

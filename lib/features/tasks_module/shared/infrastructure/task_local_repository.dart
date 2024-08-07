@@ -1,19 +1,24 @@
-import 'package:todo_app_flutter/features/tasks_module/domain/task.dart';
-import 'package:todo_app_flutter/features/tasks_module/domain/task_builder.dart';
-import 'package:todo_app_flutter/features/tasks_module/domain/task_repository.dart';
-
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_builder.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_repository.dart';
+import 'package:uuid/uuid.dart';
+//TODO: eliminar uso de uuid
+const  Uuid uuid = Uuid();
 class TaskLocalRepository implements TaskRepository {
   TaskLocalRepository() {
     _tasks = <Task>[
       TaskBuilder()
+        .withId(uuid.v1())
           .withTitle('titulo 1')
           .withDescription('Descripcion 1')
           .build(),
       TaskBuilder()
+      .withId(uuid.v1())
           .withTitle('titulo 2')
           .withDescription('Descripcion 3')
           .build(),
       TaskBuilder()
+          .withId(uuid.v1())
           .withTitle('titulo 1')
           .withDescription('Descripcion 4')
           .build()
