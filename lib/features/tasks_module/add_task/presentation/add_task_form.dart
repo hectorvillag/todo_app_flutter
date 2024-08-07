@@ -67,7 +67,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
                   }
                   return ElevatedButton(
                     onPressed: submit,
-                    child: const Text('Crear'),
+                    child:  Text('Crear',style: Theme.of(context).textTheme.bodyLarge,),
                   );
                 },
               ),

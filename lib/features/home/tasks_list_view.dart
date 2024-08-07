@@ -28,6 +28,9 @@ class _TasksListViewState extends State<TasksListView> {
 
   @override
   Widget build(BuildContext context) {
+    if(widget.tasks.isEmpty){
+      return  Center(child: Text('Sin tareas!',style: Theme.of(context).textTheme.bodyLarge,));
+    }
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: ListView(

@@ -21,7 +21,8 @@ class _AddTaskViewState extends State<AddTaskView> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Agregar tarea'),
+          title: Text('Agregar tarea',
+              style: Theme.of(context).textTheme.headlineMedium),
         ),
         body: const SafeArea(
           child: Padding(

@@ -17,7 +17,10 @@ class HomeScreen extends StatelessWidget {
       )..add(FetchTasksEvent()),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Lista de tareas'),
+          title: Text(
+            'Lista de tareas',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
         ),
         body: _body(),
         floatingActionButton: const FabAddTask(),
