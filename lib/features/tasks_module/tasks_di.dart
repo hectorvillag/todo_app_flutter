@@ -1,4 +1,4 @@
-import 'package:todo_app_flutter/features/tasks_module/change_task_status/change_task_status.dart';
+import 'package:todo_app_flutter/features/tasks_module/change_task_status/domain/change_task_status.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_repository.dart';
 import 'package:todo_app_flutter/features/tasks_module/add_task/domain/add_task.dart';
 import 'package:todo_app_flutter/features/tasks_module/list_tasks/domain/fetch_tasks.dart';

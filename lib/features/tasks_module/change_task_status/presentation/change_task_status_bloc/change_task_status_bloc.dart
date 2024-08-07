@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
-import 'package:todo_app_flutter/features/tasks_module/change_task_status/change_task_status.dart';
+import 'package:todo_app_flutter/features/tasks_module/change_task_status/domain/change_task_status.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/infrastructure/tasks_stream.dart';
 part 'change_task_status_event.dart';

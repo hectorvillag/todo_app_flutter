@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           title: const Text('Lista de tareas'),
         ),
         body: _body(),
-        floatingActionButton: FabAddTask(),
+        floatingActionButton: const FabAddTask(),
       ),
     );
   }

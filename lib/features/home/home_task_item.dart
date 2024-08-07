@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app_flutter/features/tasks_module/change_task_status/change_task_status_bloc/change_task_status_bloc.dart';
+import 'package:todo_app_flutter/features/tasks_module/change_task_status/presentation/change_task_status_bloc/change_task_status_bloc.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task.dart';
 import 'package:todo_app_flutter/service_locator.dart';
 import 'package:todo_app_flutter/shared/colors.dart';

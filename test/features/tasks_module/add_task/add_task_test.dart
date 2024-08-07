@@ -6,7 +6,6 @@ import 'package:todo_app_flutter/features/tasks_module/add_task/domain/add_task.
 import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task_builder.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_repository.dart';
-import 'package:uuid/uuid.dart';
 
 class MockTaskRepository extends Mock implements TaskRepository {}
 
