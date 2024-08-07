@@ -3,10 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:todo_app_flutter/features/logger/app_logger.dart';
 import 'package:todo_app_flutter/features/tasks_module/add_task/domain/add_task.dart';
-import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
-import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_builder.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task_builder.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_repository.dart';
-import 'package:uuid/uuid.dart';
 
 class MockTaskRepository extends Mock implements TaskRepository {}
 
@@ -19,7 +18,7 @@ void main() {
 
     Task createDummyTask() {
       TaskBuilder taskBuilder = TaskBuilder();
-      taskBuilder.withId(const Uuid().v1());
+      taskBuilder.withId(1);
       taskBuilder.withTitle('title');
       taskBuilder.withDescription('description');
       return taskBuilder.build();

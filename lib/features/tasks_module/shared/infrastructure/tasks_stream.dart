@@ -1,5 +1,5 @@
 import 'package:rxdart/subjects.dart';
-import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task.dart';
 
 class TasksStreamState {
   final _tasksStreamController = BehaviorSubject<List<Task>>.seeded(const []);
@@ -17,6 +17,11 @@ class TasksStreamState {
     _tasksStreamController.add(tasks);
   }
 
+  Stream<List<Task>> refresh(List<Task> tasks) {
+    _tasksStreamController.add(tasks);
+    return streamEntities;
+  }
+
   add(Task task) {
     final tasks = [..._tasksStreamController.value];
     tasks.add(task);
@@ -25,9 +30,9 @@ class TasksStreamState {
 
   delete(Task task) {
     final tasks = [..._tasksStreamController.value];
-    final modelIndex = tasks.indexWhere((it) => it.id == task.id);
-    if (modelIndex >= 0) {
-      tasks.removeAt(modelIndex);
+    final taskIndex = tasks.indexWhere((it) => it.id == task.id);
+    if (taskIndex >= 0) {
+      tasks.removeAt(taskIndex);
       _tasksStreamController.add(tasks);
     }
   }

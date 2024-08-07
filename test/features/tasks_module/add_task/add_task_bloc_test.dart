@@ -3,11 +3,11 @@ import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:todo_app_flutter/features/tasks_module/add_task/domain/add_task.dart';
+import 'package:todo_app_flutter/features/tasks_module/add_task/domain/error_adding_task.dart';
 import 'package:todo_app_flutter/features/tasks_module/add_task/presentation/add_task_bloc/add_task_bloc.dart';
-import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
-import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_builder.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task_builder.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/infrastructure/tasks_stream.dart';
-import 'package:uuid/uuid.dart';
 
 class MockAddTask extends Mock implements AddTask {}
 class MockTasksStreamState extends Mock implements TasksStreamState{}
@@ -20,7 +20,7 @@ main() {
     
     Task createDummyTask() {
       TaskBuilder taskBuilder = TaskBuilder();
-      taskBuilder.withId(const Uuid().v1());
+      taskBuilder.withId(1);
       taskBuilder.withTitle('title');
       taskBuilder.withDescription('description');
       return taskBuilder.build();
@@ -49,7 +49,7 @@ main() {
       'emits FailedToAddTaskState when CreateTaskEvent is added',
       build: () {
         when(() => addTask.call(task))
-            .thenAnswer((_) async =>  dartz.Left(Exception('unknow')));
+            .thenAnswer((_) async =>  dartz.Left(ErrorAddingTask('unknow')));
         return AddTaskBloc(addTask: addTask,tasksStreamState:  tasksStreamState);
       },
       act: (bloc) => bloc.add(CreateTaskEvent(task)),

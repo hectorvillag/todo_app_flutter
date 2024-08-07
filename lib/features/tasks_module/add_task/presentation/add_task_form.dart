@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_builder.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task_builder.dart';
 import 'package:todo_app_flutter/features/tasks_module/add_task/presentation/add_task_bloc/add_task_bloc.dart';
 
-import '../../shared/domain/task.dart';
+import '../../shared/domain/models/task.dart';
 
 class AddTaskForm extends StatefulWidget {
   const AddTaskForm({super.key});
