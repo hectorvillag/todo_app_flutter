@@ -6,7 +6,7 @@ class Task {
     required this.isDone,
   });
 
-  late String? id;
+  late int? id;
   late String title;
   late String description;
   late bool isDone;

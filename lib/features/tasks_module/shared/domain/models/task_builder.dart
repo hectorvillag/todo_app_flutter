@@ -1,7 +1,7 @@
-import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task.dart';
 
 class TaskBuilder{
-   String? _id;
+   int? _id;
    String _title = '';
    String _description = '';
    bool _isDone = false;
@@ -15,7 +15,7 @@ class TaskBuilder{
       );
    }
 
-   TaskBuilder withId(String? id){
+   TaskBuilder withId(int? id){
       _id = id;
       return this;
    }

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app_flutter/features/tasks_module/add_task/presentation/add_task_view.dart';
 
 class FabAddTask extends StatelessWidget{
-  const FabAddTask({super.key,required this.onClosed});
-  final Function(BuildContext context) onClosed;
+  const FabAddTask({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +11,6 @@ class FabAddTask extends StatelessWidget{
       transitionType: ContainerTransitionType.fade,
       openBuilder: (BuildContext context, VoidCallback _) {
         return const AddTaskView();
-      },
-      onClosed: (data) {
-        onClosed(context);
       },
       closedElevation: 6.0,
       closedShape: const RoundedRectangleBorder(

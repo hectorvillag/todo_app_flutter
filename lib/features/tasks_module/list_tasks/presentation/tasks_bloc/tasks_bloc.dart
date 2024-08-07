@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
-import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/domain/models/task.dart';
 import 'package:todo_app_flutter/features/tasks_module/list_tasks/domain/fetch_tasks.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/infrastructure/tasks_stream.dart';
 

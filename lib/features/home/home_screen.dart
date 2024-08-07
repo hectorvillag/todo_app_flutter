@@ -20,11 +20,7 @@ class HomeScreen extends StatelessWidget {
           title: const Text('Lista de tareas'),
         ),
         body: _body(),
-        floatingActionButton: FabAddTask(
-          onClosed: (context) {
-            //  BlocProvider.of<TasksBloc>(context).add(FetchTasksEvent());
-          },
-        ),
+        floatingActionButton: FabAddTask(),
       ),
     );
   }
@@ -33,11 +29,7 @@ class HomeScreen extends StatelessWidget {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         if (state is FetchedTasks) {
-          return TasksListView(
-            tasks: state.tasks,
-            onUpdateTask: (context) {
-            },
-          );
+          return TasksListView(tasks: state.tasks);
         }
         if (state is FailRecoverTasksState) {
           return const Center(
