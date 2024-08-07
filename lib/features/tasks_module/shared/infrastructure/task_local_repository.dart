@@ -28,8 +28,9 @@ class TaskLocalRepository implements TaskRepository {
   late List<Task> _tasks;
 
   @override
-  Future<void> add(Task task) async {
+  Future<Task> add(Task task) async {
     _tasks.add(task);
+    return task;
   }
 
   @override
@@ -48,7 +49,7 @@ class TaskLocalRepository implements TaskRepository {
   }
 
   @override
-  Future<void> update(Task taskToUpdate) async {
+  Future<Task> update(Task taskToUpdate) async {
     final result = _tasks.where((task) => task.id == taskToUpdate.id).toList();
     if (result.isEmpty) {
       //TODO: manejar de otra manera esta excepcion
@@ -56,5 +57,6 @@ class TaskLocalRepository implements TaskRepository {
     }
     _tasks.remove(result.first);
     _tasks.add(taskToUpdate);
+    return taskToUpdate;
   }
 }

@@ -18,6 +18,7 @@ dependencies:
   uuid: ^4.4.2
   logger_plus: ^0.0.6+4
   mocktail: ^1.0.4
+  rxdart: ^0.28.0
 
 dev_dependencies:
   flutter_test:

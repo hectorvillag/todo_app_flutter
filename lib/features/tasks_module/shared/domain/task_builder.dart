@@ -5,8 +5,6 @@ class TaskBuilder{
    String _title = '';
    String _description = '';
    bool _isDone = false;
-   DateTime? _createdAt;
-   DateTime? _updatedAt;
 
    Task build(){
       return Task(
@@ -14,8 +12,6 @@ class TaskBuilder{
         title: _title,
         description: _description,
         isDone: _isDone,
-        createdAt:  _createdAt ?? DateTime.now(),
-        updatedAt: _updatedAt ?? DateTime.now()
       );
    }
 
@@ -35,16 +31,6 @@ class TaskBuilder{
    }
    TaskBuilder withIsDone(bool isDone){
     _isDone = isDone;
-    return this;
-   }
-
-   TaskBuilder withCreatedAt(DateTime? createdAt){
-    _createdAt = createdAt;
-    return this;
-   }
-
-   TaskBuilder withUpdatedAt(DateTime? updatedAt){
-    _updatedAt = updatedAt;
     return this;
    }
 

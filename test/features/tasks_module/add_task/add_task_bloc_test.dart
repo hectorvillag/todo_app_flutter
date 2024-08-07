@@ -6,15 +6,18 @@ import 'package:todo_app_flutter/features/tasks_module/add_task/domain/add_task.
 import 'package:todo_app_flutter/features/tasks_module/add_task/presentation/add_task_bloc/add_task_bloc.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/domain/task.dart';
 import 'package:todo_app_flutter/features/tasks_module/shared/domain/task_builder.dart';
-import 'package:todo_app_flutter/shared/domain/nothing.dart';
+import 'package:todo_app_flutter/features/tasks_module/shared/infrastructure/tasks_stream.dart';
 import 'package:uuid/uuid.dart';
 
 class MockAddTask extends Mock implements AddTask {}
+class MockTasksStreamState extends Mock implements TasksStreamState{}
 
 main() {
   group('AddTaskBloc', () {
     late AddTask addTask;
     late Task task;
+    late TasksStreamState tasksStreamState;
+    
     Task createDummyTask() {
       TaskBuilder taskBuilder = TaskBuilder();
       taskBuilder.withId(const Uuid().v1());
@@ -26,14 +29,16 @@ main() {
     setUp(() {
       addTask = MockAddTask();
       task = createDummyTask();
+      tasksStreamState = MockTasksStreamState();
     });
-    
+
     blocTest(
       'emits AddTaskSuccessState when CreateTaskEvent is added',
       build: () {
         when(() => addTask.call(task))
-            .thenAnswer((_) async => const dartz.Right(Nothing()));
-        return AddTaskBloc(addTask: addTask);
+            .thenAnswer((_) async => dartz.Right(task));
+        when(() => tasksStreamState.add(task)).thenReturn((){});
+        return AddTaskBloc(addTask: addTask,tasksStreamState: tasksStreamState);
       },
       act: (bloc) => bloc.add(CreateTaskEvent(task)),
       expect: () => [SavingTaskState(),AddTaskSuccessState()],
@@ -45,7 +50,7 @@ main() {
       build: () {
         when(() => addTask.call(task))
             .thenAnswer((_) async =>  dartz.Left(Exception('unknow')));
-        return AddTaskBloc(addTask: addTask);
+        return AddTaskBloc(addTask: addTask,tasksStreamState:  tasksStreamState);
       },
       act: (bloc) => bloc.add(CreateTaskEvent(task)),
       expect: () => [SavingTaskState(),FailedToAddTaskState()],

@@ -15,6 +15,8 @@ class FetchedTasks extends TasksState {
   const FetchedTasks(this.tasks);
 
   final List<Task> tasks;
+  @override
+  List<Object> get props => [tasks];
 }
 
 class FailRecoverTasksState extends TasksState {}

@@ -15,12 +15,15 @@ class _AddTaskViewState extends State<AddTaskView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AddTaskBloc>(
-      create: (_) => AddTaskBloc(addTask: serviceLocator()),
+      create: (_) => AddTaskBloc(
+        addTask: serviceLocator(),
+        tasksStreamState: serviceLocator(),
+      ),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Agregar tarea'),
         ),
-        body:  const SafeArea(
+        body: const SafeArea(
           child: Padding(
             padding: EdgeInsets.all(24.0),
             child: AddTaskForm(),

@@ -6,16 +6,24 @@ class TasksListView extends StatelessWidget {
   const TasksListView({
     super.key,
     required this.tasks,
+    required this.onUpdateTask,
   });
 
   final List<Task> tasks;
+  final Function(BuildContext) onUpdateTask;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: ListView(
-          children: [...tasks.map((task) => HomeTaskItem(task))],
-        ));
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+      child: ListView(
+        children: tasks
+            .map((task) => HomeTaskItem(
+                  task: task,
+                  onUpdateTask: onUpdateTask,
+                ))
+            .toList(),
+      ),
+    );
   }
 }

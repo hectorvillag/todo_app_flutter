@@ -10,6 +10,7 @@ class FetchTasks{
   Future<dartz.Either<Exception,List<Task>>> call() async{
     try{
       final tasks = await taskRepository.getAll();
+      tasks.sort((a,b) => a.id!.compareTo(b.id!));
       return dartz.Right(tasks);
     }catch (e){
       return dartz.Left(Exception(e.toString()));

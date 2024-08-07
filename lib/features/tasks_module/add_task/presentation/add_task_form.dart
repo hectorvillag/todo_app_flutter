@@ -53,9 +53,23 @@ class _AddTaskFormState extends State<AddTaskForm> {
             child: SizedBox(
               width: double.infinity,
               height: 48.0,
-              child: ElevatedButton(
-                onPressed: submit,
-                child: const Text('Crear'),
+              child: BlocConsumer<AddTaskBloc, AddTaskState>(
+                listener: (context, state) {
+                  if (state is AddTaskSuccessState) {
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
+                  }
+                },
+                builder: (context, state) {
+                  if (state is SavingTaskState) {
+                    return const Text('Guardando...');
+                  }
+                  return ElevatedButton(
+                    onPressed: submit,
+                    child: const Text('Crear'),
+                  );
+                },
               ),
             ),
           )

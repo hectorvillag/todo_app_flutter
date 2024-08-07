@@ -34,7 +34,7 @@ void main() {
       //Arrange
       Task task = createDummyTask();
 
-      when(() => taskRepository.add(task)).thenAnswer((_) async {});
+      when(() => taskRepository.add(task)).thenAnswer((_) async {return task;});
 
       AddTask addTask = AddTask(taskRepository, appLogger);
 
